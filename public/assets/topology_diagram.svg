@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="topBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="nodeGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="360" rx="12" fill="url(#topBg)" stroke="#1e293b"/>
+
+  <!-- Title -->
+  <text x="30" y="36" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700" fill="#38bdf8" letter-spacing="1">ARQUITECTURA DE RED &amp; INTERFACES DEL FIREWALL</text>
+  <text x="30" y="54" font-family="'Inter', sans-serif" font-size="11" fill="#64748b">Topología de aislamiento de perímetros con inspección de estados en Linux y Windows</text>
+
+  <!-- Connecting Cables (Paths) -->
+  <!-- WAN to Firewall -->
+  <path d="M 180 180 L 400 180" stroke="#0284c7" stroke-width="3" stroke-dasharray="6,4"/>
+  <!-- Firewall to DMZ -->
+  <path d="M 500 150 L 700 110" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6,4"/>
+  <!-- Firewall to LAN -->
+  <path d="M 500 210 L 700 250" stroke="#10b981" stroke-width="3" stroke-dasharray="6,4"/>
+
+  <!-- NODE 1: WAN -->
+  <g transform="translate(40, 115)">
+    <rect width="140" height="130" rx="10" fill="#131e36" stroke="#f43f5e" stroke-width="1.5"/>
+    <rect x="10" y="10" width="36" height="36" rx="6" fill="#4c0519"/>
+    <text x="21" y="34" font-size="18">🌐</text>
+    <text x="56" y="26" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#f43f5e">WAN</text>
+    <text x="56" y="40" font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8">Internet</text>
+    <line x1="10" y1="56" x2="130" y2="56" stroke="#1e293b"/>
+    <text x="12" y="74" font-family="'JetBrains Mono', monospace" font-size="10" fill="#cbd5e1">203.0.113.0/24</text>
+    <text x="12" y="90" font-family="'JetBrains Mono', monospace" font-size="9" fill="#f87171">• Attacker IP</text>
+    <text x="12" y="104" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">• Remote Clients</text>
+    <rect x="12" y="112" width="116" height="12" rx="3" fill="#4c0519" opacity="0.6"/>
+    <text x="22" y="121" font-family="'JetBrains Mono', monospace" font-size="8" fill="#fda4af">ZONA NO CONFIABLE</text>
+  </g>
+
+  <!-- NODE 2: FIREWALL -->
+  <g transform="translate(370, 95)">
+    <rect width="160" height="170" rx="12" fill="#0f172a" stroke="#06b6d4" stroke-width="2" filter="url(#nodeGlow)"/>
+    <rect x="12" y="12" width="36" height="36" rx="6" fill="#082f49"/>
+    <text x="23" y="36" font-size="18">🛡️</text>
+    <text x="56" y="27" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800" fill="#38bdf8">GATEWAY</text>
+    <text x="56" y="42" font-family="'Inter', sans-serif" font-size="10" fill="#67e8f9">Firewall Engine</text>
+    <line x1="12" y1="58" x2="148" y2="58" stroke="#1e293b"/>
+    <text x="14" y="75" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#f43f5e">eth0: WAN (Inbound)</text>
+    <text x="14" y="93" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#f59e0b">eth2: DMZ (Forward)</text>
+    <text x="14" y="111" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#10b981">eth1: LAN (Forward)</text>
+    <line x1="12" y1="122" x2="148" y2="122" stroke="#1e293b"/>
+    <text x="14" y="138" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">• iptables / nftables</text>
+    <text x="14" y="152" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">• Windows Firewall</text>
+  </g>
+
+  <!-- NODE 3: DMZ SERVERS -->
+  <g transform="translate(700, 45)">
+    <rect width="160" height="120" rx="10" fill="#131e36" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect x="10" y="10" width="32" height="32" rx="6" fill="#451a03"/>
+    <text x="19" y="32" font-size="16">🗄️</text>
+    <text x="50" y="24" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#f59e0b">DMZ SERVERS</text>
+    <text x="50" y="38" font-family="'Inter', sans-serif" font-size="9" fill="#94a3b8">Zona Desmilitarizada</text>
+    <line x1="10" y1="50" x2="150" y2="50" stroke="#1e293b"/>
+    <text x="12" y="66" font-family="'JetBrains Mono', monospace" font-size="10" fill="#cbd5e1">172.16.0.0/24</text>
+    <text x="12" y="82" font-family="'JetBrains Mono', monospace" font-size="9" fill="#fde047">• Web Server (80, 443)</text>
+    <text x="12" y="96" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">• DNS Server (53)</text>
+    <text x="12" y="110" font-family="'JetBrains Mono', monospace" font-size="8" fill="#f87171">⚠ Aislada de la LAN</text>
+  </g>
+
+  <!-- NODE 4: LAN INTERNAL -->
+  <g transform="translate(700, 195)">
+    <rect width="160" height="125" rx="10" fill="#131e36" stroke="#10b981" stroke-width="1.5"/>
+    <rect x="10" y="10" width="32" height="32" rx="6" fill="#064e3b"/>
+    <text x="19" y="32" font-size="16">💻</text>
+    <text x="50" y="24" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#34d399">LAN INTERNA</text>
+    <text x="50" y="38" font-family="'Inter', sans-serif" font-size="9" fill="#94a3b8">Red Privada Confiable</text>
+    <line x1="10" y1="50" x2="150" y2="50" stroke="#1e293b"/>
+    <text x="12" y="66" font-family="'JetBrains Mono', monospace" font-size="10" fill="#cbd5e1">192.168.1.0/24</text>
+    <text x="12" y="82" font-family="'JetBrains Mono', monospace" font-size="9" fill="#6ee7b7">• Clientes (192.168.1.50)</text>
+    <text x="12" y="96" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">• Admin Workstations</text>
+    <text x="12" y="112" font-family="'JetBrains Mono', monospace" font-size="8" fill="#34d399">✓ Acceso Saliente Permitido</text>
+  </g>
+
+  <!-- Netfilter Legend -->
+  <g transform="translate(40, 315)">
+    <text x="0" y="18" font-family="'JetBrains Mono', monospace" font-size="11" fill="#64748b">
+      LÓGICA LINUX: <tspan fill="#38bdf8">First-Match Wins (Secuencial)</tspan> | LÓGICA WINDOWS: <tspan fill="#f43f5e">Explicit Block Overrides Allow</tspan>
+    </text>
+  </g>
+</svg>
