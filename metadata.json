@@ -1,6 +1,0 @@
-{
-  "name": "CyberFirewall Lab - Simulador de Firewalls",
-  "description": "Simulador interactivo de firewalls perimetrales y de host para el aprendizaje práctico de la lógica de filtrado en Linux (iptables/nftables) y Windows Defender Firewall.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

@@ -1,0 +1,91 @@
+/* CyberFirewall Lab — estilos fuente (Tailwind 3). Compilar con: npm run css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { color-scheme: dark; }
+  code { @apply px-1 rounded bg-slate-800/80 text-cyan-200 font-mono text-[0.95em]; }
+  :focus-visible { outline: 2px solid #22d3ee; outline-offset: 2px; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: #090d16; }
+  ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #334155; }
+}
+
+@layer components {
+  .engine-btn { @apply text-slate-400 hover:text-slate-200 transition-colors; }
+  .engine-btn.is-active[data-engine='linux'] { @apply bg-cyan-600 text-white shadow-sm; }
+  .engine-btn.is-active[data-engine='windows'] { @apply bg-blue-600 text-white shadow-sm; }
+  .policy-select { @apply bg-slate-950 border border-slate-700 text-rose-300 font-bold rounded px-1 py-0.5 text-[11px] focus:outline-none focus:border-cyan-500; }
+  .hdr-btn { @apply px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 rounded-md text-xs font-medium transition-colors; }
+
+  .topo-node { @apply p-2.5 rounded-xl bg-slate-900/80 border border-slate-800 transition-all flex flex-col items-center text-center gap-0.5 min-w-0; }
+  .topo-icon { @apply w-8 h-8 rounded-lg border flex items-center justify-center mb-1 text-base; }
+  .topo-tag { @apply mt-1 text-[9px] px-1.5 py-0.5 rounded bg-slate-950 border; }
+  .topo-node.is-src { @apply border-cyan-400 shadow-[0_0_18px_rgba(34,211,238,0.35)]; }
+  .topo-node.is-dst { @apply border-violet-400 shadow-[0_0_18px_rgba(167,139,250,0.35)]; }
+  .topo-node.v-accept { @apply border-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.3)]; }
+  .topo-node.v-drop { @apply border-rose-500 shadow-[0_0_20px_rgba(244,63,94,0.3)]; }
+  .topo-node.v-reject { @apply border-amber-500 shadow-[0_0_20px_rgba(245,158,11,0.3)]; }
+
+  .hook { @apply px-2 py-0.5 rounded bg-slate-800/80 border border-slate-700 text-slate-400 transition-all; }
+  .hook small { @apply text-[9px] opacity-80; }
+  .hook.is-on { @apply bg-cyan-950 border-cyan-500 text-cyan-300 font-bold; }
+  .hook.is-nat { @apply bg-amber-950 border-amber-500 text-amber-300 font-bold; }
+  .hook.v-accept { @apply bg-emerald-950 border-emerald-500 text-emerald-300 font-bold; }
+  .hook.v-drop { @apply bg-rose-950 border-rose-500 text-rose-300 font-bold; }
+  .hook.v-reject { @apply bg-amber-950 border-amber-500 text-amber-300 font-bold; }
+
+  .lbl { @apply block text-slate-400 text-[10px] uppercase space-y-1; }
+  .lbl > select, .lbl > input { @apply mt-1 normal-case; }
+  .field { @apply w-full bg-slate-950 border border-slate-700 rounded px-2 py-1.5 text-slate-200 text-xs font-mono focus:outline-none focus:border-cyan-500; }
+  .field-sm { @apply bg-slate-900 border border-slate-700 text-slate-200 text-xs rounded px-2 py-1 font-mono focus:outline-none focus:border-cyan-500; }
+  .field.is-bad, .field-sm.is-bad { @apply border-rose-500; }
+  .field:disabled { @apply opacity-40; }
+
+  .verdict { @apply p-4 rounded-xl border flex flex-col items-center justify-center text-center py-5 transition-all; }
+  .verdict-idle { @apply border-slate-800 bg-slate-900/60 text-slate-300; }
+  .verdict-accept { @apply border-emerald-500/60 bg-emerald-950/40 shadow-[0_0_25px_rgba(16,185,129,0.2)] text-emerald-400; }
+  .verdict-drop { @apply border-rose-500/60 bg-rose-950/40 shadow-[0_0_25px_rgba(244,63,94,0.2)] text-rose-400; }
+  .verdict-reject { @apply border-amber-500/60 bg-amber-950/40 shadow-[0_0_25px_rgba(245,158,11,0.2)] text-amber-400; }
+  .verdict-na { @apply border-blue-500/60 bg-blue-950/40 text-blue-300; }
+
+  .cli-tab, .con-tab { @apply px-2.5 py-1 rounded text-slate-400 hover:text-slate-200 flex items-center gap-1; }
+  .cli-tab.is-active, .con-tab.is-active { @apply text-cyan-400 font-semibold bg-slate-800 border border-slate-700; }
+  .badge { @apply ml-1 px-1.5 rounded-full bg-cyan-950 text-cyan-300 text-[10px]; }
+
+  .act { @apply px-2 py-0.5 rounded border font-bold text-[11px]; }
+  .act-ACCEPT { @apply bg-emerald-950/80 text-emerald-300 border-emerald-500/50; }
+  .act-DROP { @apply bg-rose-950/80 text-rose-300 border-rose-500/50; }
+  .act-REJECT { @apply bg-amber-950/80 text-amber-300 border-amber-500/50; }
+  .chip { @apply px-1.5 py-0.5 rounded bg-slate-900 text-slate-300 border border-slate-700 text-[10px] whitespace-nowrap; }
+  .chip-iface { @apply bg-cyan-950 text-cyan-300 border-cyan-800; }
+  .flag { @apply px-1.5 py-0.5 rounded text-[9px] font-bold border; }
+  .flag-shadowed { @apply bg-amber-950 text-amber-300 border-amber-800; }
+  .flag-redundant { @apply bg-slate-800 text-slate-300 border-slate-600; }
+  .flag-overridden { @apply bg-rose-950 text-rose-300 border-rose-800; }
+  .row-btn { @apply p-1 rounded hover:bg-slate-800 text-slate-400 hover:text-cyan-400; }
+
+  .rule-evaluating { @apply bg-cyan-500/15; box-shadow: inset 4px 0 0 #06b6d4; }
+  .rule-matched-accept { @apply bg-emerald-500/20; box-shadow: inset 4px 0 0 #10b981; }
+  .rule-matched-drop { @apply bg-rose-500/20; box-shadow: inset 4px 0 0 #f43f5e; }
+  .rule-matched-reject { @apply bg-amber-500/20; box-shadow: inset 4px 0 0 #f59e0b; }
+  .rule-skipped { @apply opacity-40; }
+  .rule-off { @apply opacity-40; }
+
+  .modal { @apply fixed inset-0 z-40 bg-black/70 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 overflow-y-auto; }
+  .modal.hidden { display: none; }
+  .modal-box { @apply w-full bg-slate-950 border border-slate-700 rounded-xl shadow-2xl my-6; }
+  .modal-head { @apply flex items-center justify-between px-4 py-3 border-b border-slate-800; }
+  .modal-title { @apply text-sm font-bold text-white font-mono; }
+  .modal-x { @apply text-slate-400 hover:text-white text-2xl leading-none px-2; }
+  .export-btn { @apply p-3 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-700 hover:border-cyan-600 text-left flex flex-col gap-0.5 text-slate-200; }
+  .export-btn span { @apply text-[11px] text-slate-400; }
+
+  .note { @apply p-2 rounded border text-[11px] leading-relaxed; }
+  .note-info { @apply border-cyan-800/60 bg-cyan-950/30 text-cyan-100; }
+  .note-warn { @apply border-amber-700/60 bg-amber-950/30 text-amber-100; }
+  .ok { @apply text-emerald-300; }
+  .ko { @apply text-rose-300; }
+}

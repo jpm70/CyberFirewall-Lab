@@ -32,9 +32,9 @@
     <text x="56" y="26" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#f43f5e">WAN</text>
     <text x="56" y="40" font-family="'Inter', sans-serif" font-size="10" fill="#94a3b8">Internet</text>
     <line x1="10" y1="56" x2="130" y2="56" stroke="#1e293b"/>
-    <text x="12" y="74" font-family="'JetBrains Mono', monospace" font-size="10" fill="#cbd5e1">203.0.113.0/24</text>
-    <text x="12" y="90" font-family="'JetBrains Mono', monospace" font-size="9" fill="#f87171">• Attacker IP</text>
-    <text x="12" y="104" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">• Remote Clients</text>
+    <text x="12" y="74" font-family="'JetBrains Mono', monospace" font-size="10" fill="#cbd5e1">IP pública 203.0.113.1</text>
+    <text x="12" y="90" font-family="'JetBrains Mono', monospace" font-size="9" fill="#f87171">• Atacantes</text>
+    <text x="12" y="104" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">• Clientes remotos</text>
     <rect x="12" y="112" width="116" height="12" rx="3" fill="#4c0519" opacity="0.6"/>
     <text x="22" y="121" font-family="'JetBrains Mono', monospace" font-size="8" fill="#fda4af">ZONA NO CONFIABLE</text>
   </g>
@@ -47,9 +47,9 @@
     <text x="56" y="27" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="800" fill="#38bdf8">GATEWAY</text>
     <text x="56" y="42" font-family="'Inter', sans-serif" font-size="10" fill="#67e8f9">Firewall Engine</text>
     <line x1="12" y1="58" x2="148" y2="58" stroke="#1e293b"/>
-    <text x="14" y="75" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#f43f5e">eth0: WAN (Inbound)</text>
-    <text x="14" y="93" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#f59e0b">eth2: DMZ (Forward)</text>
-    <text x="14" y="111" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#10b981">eth1: LAN (Forward)</text>
+    <text x="14" y="75" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#f43f5e">eth0: WAN 203.0.113.1</text>
+    <text x="14" y="93" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#f59e0b">eth2: DMZ 172.16.0.1</text>
+    <text x="14" y="111" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" fill="#10b981">eth1: LAN 192.168.1.1</text>
     <line x1="12" y1="122" x2="148" y2="122" stroke="#1e293b"/>
     <text x="14" y="138" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">• iptables / nftables</text>
     <text x="14" y="152" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">• Windows Firewall</text>
@@ -65,7 +65,7 @@
     <line x1="10" y1="50" x2="150" y2="50" stroke="#1e293b"/>
     <text x="12" y="66" font-family="'JetBrains Mono', monospace" font-size="10" fill="#cbd5e1">172.16.0.0/24</text>
     <text x="12" y="82" font-family="'JetBrains Mono', monospace" font-size="9" fill="#fde047">• Web Server (80, 443)</text>
-    <text x="12" y="96" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">• DNS Server (53)</text>
+    <text x="12" y="96" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">• DNS (53/udp)</text>
     <text x="12" y="110" font-family="'JetBrains Mono', monospace" font-size="8" fill="#f87171">⚠ Aislada de la LAN</text>
   </g>
 
